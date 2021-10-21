@@ -257,13 +257,15 @@ def crossover(p1,p2):
             else:
                 print("[   ]", end="")'''
     return hijo1, hijo2
+
 def mutacion(padre):
-    fila=random.randint(0,9)
-    columna=random.randint(0,9)
-    if padre[fila][columna].HayGenerador:
-        padre[fila][columna].setHayGenerador(False)
-    else:
-        padre[fila][columna].setHayGenerador(True)
+    if(random.random() <= prob_mutacion):
+        fila=random.randint(0,9)
+        columna=random.randint(0,9)
+        if padre[fila][columna].HayGenerador:
+            padre[fila][columna].setHayGenerador(False)
+        else:
+            padre[fila][columna].setHayGenerador(True)
     return padre
 
 def crossoverYmutacion():
